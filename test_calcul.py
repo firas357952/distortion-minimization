@@ -18,18 +18,18 @@ print("Theoretical value", theoretical_value)
 
 # using Monte Carlo
 def estimate(cls, shape, point, N=1000):
-    practical_value = 0
+    estimation = 0
 
     for _ in range(N):
         random_point = cls.random_point_in_shape(shape)
-        practical_value += point.distance(random_point) ** 2
+        estimation += point.distance(random_point) ** 2
 
-    return practical_value / N
+    return estimation / N
 
 
-practical_value = estimate(Triangle, triangle, m)
-print("Practical value", practical_value)
-print(abs(theoretical_value - practical_value) < 10 ** (-1))
+estimation = estimate(Triangle, triangle, m)
+print("estimation", estimation)
+print(abs(theoretical_value - estimation) < 10 ** (-1))
 
 print("----------------------------------")
 

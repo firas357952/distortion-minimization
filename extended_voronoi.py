@@ -3,7 +3,7 @@ from collections import defaultdict
 import numpy as np
 from scipy.spatial import Voronoi
 
-from geometry_tools import Polygon, Point
+from geometry_tools import Point, Polygon
 
 
 class ExtendedVoronoi:

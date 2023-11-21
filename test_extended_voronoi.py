@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 from extended_voronoi import ExtendedVoronoi
-from geometry_tools import Polygon, Point
+from geometry_tools import Point, Polygon
 
 N_prototypes = 20
 
