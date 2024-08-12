@@ -30,10 +30,10 @@ class Animation:
         self.boundary_polygon = Polygon(self.boundary)
         self.diameter = np.linalg.norm(np.ptp(self.boundary, axis=0))
 
-        self.N_prototypes = num_prototypes
+        self.n_prototypes = num_prototypes
 
         # LloydAlgorithm instance to handle Voronoi partitioning
-        self.lloyd = ContinuousLloydAlgorithm(self.boundary, self.N_prototypes)
+        self.lloyd = ContinuousLloydAlgorithm(self.boundary, self.n_prototypes)
 
         # Assign colors from a more aesthetically pleasing palette
         self.cell_colors = [

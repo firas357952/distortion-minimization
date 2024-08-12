@@ -17,15 +17,17 @@ Same for other classes.
 
 
 # Converts inputs to ShapelyPoint and potentially converts ShapelyPoint outputs to Point
-class Point_Wrapper:
+class PointWrapper:
     @staticmethod
     def convert(arg):
         if isinstance(arg, Iterable):
             return type(arg)(
                 (
-                    Point_Wrapper.convert(ar)
-                    if isinstance(ar, Iterable)
-                    else (ar._point if isinstance(ar, Point) else ar)
+                    (
+                        PointWrapper.convert(ar)
+                        if isinstance(ar, Iterable)
+                        else (ar._point if isinstance(ar, Point) else ar)
+                    )
                     for ar in arg
                 )
             )
@@ -34,7 +36,7 @@ class Point_Wrapper:
     @staticmethod
     def input_wrapper(func):
         def wrapper(*args, **kwargs):
-            return func(*Point_Wrapper.convert(args), **kwargs)
+            return func(*PointWrapper.convert(args), **kwargs)
 
         return wrapper
 
@@ -46,12 +48,12 @@ class Point_Wrapper:
     def output_wrapper(func):
         def wrapper(*args, **kwargs):
             result = func(*args, **kwargs)
-            return Point_Wrapper.result_wrapper(result)
+            return PointWrapper.result_wrapper(result)
 
         return wrapper
 
 
-class Polygon_Wrapper:
+class PolygonWrapper:
     @staticmethod
     def input_wrapper(func):
         def wrapper(*args, **kwargs):
@@ -70,13 +72,13 @@ class Polygon_Wrapper:
     def output_wrapper(func):
         def wrapper(*args, **kwargs):
             result = func(*args, **kwargs)
-            return Polygon_Wrapper.result_wrapper(result)
+            return PolygonWrapper.result_wrapper(result)
 
         return wrapper
 
 
-pw = Point_Wrapper
-plw = Polygon_Wrapper
+pw = PointWrapper
+plw = PolygonWrapper
 
 
 class Point:

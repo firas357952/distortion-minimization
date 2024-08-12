@@ -8,9 +8,11 @@ root = tk.Tk()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
+center_point = [screen_width // 2, screen_height // 2]
+
 # Set your boundary and number of prototypes here
-boundary = [[100, 100], [700, 100], [700, 500], [100, 500]]
-num_prototypes = 10
+boundary = [[200, 200], [800, 200], [800, 500], [200, 500]]
+num_prototypes = 5
 
 animation = Animation(root, screen_width, screen_height, boundary, num_prototypes)
 root.after(50, animation.update)

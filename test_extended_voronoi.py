@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 from extended_voronoi import ExtendedVoronoi
 from geometry_tools import Point, Polygon
 
-N_prototypes = 20
+N_prototypes = 3
 
 points = np.array(
     [(random.uniform(10, 90), random.uniform(10, 90)) for _ in range(N_prototypes)]

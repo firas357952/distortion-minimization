@@ -17,14 +17,14 @@ print("Theoretical value", theoretical_value)
 
 
 # using Monte Carlo
-def estimate(cls, shape, point, N=1000):
+def estimate(cls, shape, point, n=1000):
     estimation = 0
 
-    for _ in range(N):
+    for _ in range(n):
         random_point = cls.random_point_in_shape(shape)
         estimation += point.distance(random_point) ** 2
 
-    return estimation / N
+    return estimation / n
 
 
 estimation = estimate(Triangle, triangle, m)
